@@ -1,4 +1,11 @@
 import 'autotrack/lib/plugins/outbound-link-tracker';
+import './styles.scss';
+// import 'bootstrap';
 
-console.log('hello, world');
+import React from 'react';
+import App from './components/App';
+
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(<App />, document.getElementById('main'));
 
