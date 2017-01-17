@@ -24,9 +24,13 @@ module.exports = {
         ]
     },
     devServer: {
+        compress: true,
         inline: true,
         host: '0.0.0.0',
         port: 8080,
-        open: false
+        open: false,
+        stats: {
+            chunks: false
+        }
     }
 };
