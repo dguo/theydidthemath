@@ -22,6 +22,11 @@ module.exports = {
                 loaders: ["style", "css", "sass"]
             }
         ]
+    },
+    devServer: {
+        inline: true,
+        host: '0.0.0.0',
+        port: 8080,
+        open: false
     }
 };
-

@@ -4,10 +4,10 @@
   "description": "Sensitivity analysis",
   "main": "index.js",
   "scripts": {
+    "dev": "npm prune && npm install && webpack-dev-server -d",
+    "build": "webpack --progress --colors --watch",
     "lint": "eslint .; sass-lint -v -q; ./scripts/verify-minification.sh; exit 0",
     "lint:ci": "eslint . && sass-lint -v -q",
-    "build": "webpack --progress --colors --watch",
-    "build:prod": "webpack --progress --colors --optimize-minimize",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "sass-lint": "1.9.1",
     "sass-loader": "4.0.2",
     "style-loader": "0.13.1",
-    "webpack": "1.13.2"
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.2"
   }
 }
