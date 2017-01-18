@@ -1,7 +1,13 @@
 /* eslint-env node */
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/entry.js',
+    entry: [
+        'react-hot-loader/patch',
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        './src/entry.js'
+    ],
     output: {
         path: __dirname,
         filename: 'bundle.js'
@@ -25,11 +31,16 @@ module.exports = {
     },
     devServer: {
         compress: true,
+        hot: true,
         host: '0.0.0.0',
         port: 8080,
         open: false,
         stats: {
             chunks: false
         }
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()
+    ]
 };
