@@ -8,24 +8,23 @@ module.exports = {
     },
     devtool: 'cheap-module-eval-source-map',
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel',
-                query: {
+                loader: 'babel-loader',
+                options: {
                     presets: ['es2015', 'react']
                 }
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css", "sass"]
+                use: ["style-loader", "css-loader", "sass-loader"]
             }
         ]
     },
     devServer: {
         compress: true,
-        inline: true,
         host: '0.0.0.0',
         port: 8080,
         open: false,
