@@ -9,23 +9,29 @@ import sys
 parser = argparse.ArgumentParser(prog='./dev')
 subparsers = parser.add_subparsers(metavar='<command>', title='commands')
 
-DOCKER_RUN = ['docker', 'run', '--init', '-it', '--rm', '-v',
-              os.getcwd() + ':/src:cached', '-w=/src', '-p',
-              '127.0.0.1:8080:8080', 'node:8.6.0']
+def run(port=False):
+    command = ['docker', 'run', '--init', '-it', '--rm', '-v',
+              os.getcwd() + ':/src:cached', '-w=/src']
+    if port:
+        command += ['-p', '127.0.0.1:8080:8080']
+
+    command.append('node:8.6.0')
+
+    return command
 
 def start(args, remaining):
-    call(DOCKER_RUN + ['yarn', 'run', 'start'])
+    call(run(True) + ['yarn', 'run', 'start'])
 parser_start = subparsers.add_parser('start',
     help='start a development environment')
 parser_start.set_defaults(func=start)
 
 def sh(args, remaining):
-    call(DOCKER_RUN + ['bash'])
+    call(run() + ['bash'])
 parser_sh = subparsers.add_parser('sh', help='bring up a shell')
 parser_sh.set_defaults(func=sh)
 
 def yarn(args, remaining):
-    call(DOCKER_RUN + ['yarn'] + remaining or [])
+    call(run() + ['yarn'] + remaining or [])
 parser_yarn = subparsers.add_parser('yarn', help='run a yarn command')
 parser_yarn.set_defaults(func=yarn)
 

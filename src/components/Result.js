@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {eval as evaluate} from 'mathjs';
 
 class Result extends Component {
@@ -43,4 +44,3 @@ Result.propTypes = {
 }
 
 export default Result;
-

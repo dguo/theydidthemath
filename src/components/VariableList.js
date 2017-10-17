@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class Variable extends Component {
     render() {
@@ -42,4 +43,3 @@ class VariableList extends Component {
 }
 
 export default VariableList;
-
