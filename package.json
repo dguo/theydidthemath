@@ -4,7 +4,7 @@
   "description": "Sensitivity analysis",
   "main": "index.js",
   "scripts": {
-    "dev": "npm prune && npm install && webpack-dev-server -d",
+    "start": "yarn install && webpack-dev-server -d",
     "build": "webpack --progress --colors --watch",
     "lint": "eslint .; sass-lint -v -q; exit 0",
     "lint:ci": "eslint . && sass-lint -v -q",
