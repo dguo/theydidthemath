@@ -1,4 +1,6 @@
 /* eslint-env node */
+const path = require('path');
+
 const webpack = require('webpack');
 
 module.exports = {
@@ -9,7 +11,7 @@ module.exports = {
         './src/entry.js'
     ],
     output: {
-        path: __dirname,
+        path: path.join(__dirname, 'site'),
         filename: 'bundle.js'
     },
     devtool: 'cheap-module-eval-source-map',
@@ -24,12 +26,13 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
             }
         ]
     },
     devServer: {
+        contentBase: path.join(__dirname, 'site'),
         compress: true,
         hot: true,
         host: '0.0.0.0',
