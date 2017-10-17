@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm prune && npm install && webpack-dev-server -d",
     "build": "webpack --progress --colors --watch",
-    "lint": "eslint .; sass-lint -v -q; ./scripts/verify-minification.sh; exit 0",
+    "lint": "eslint .; sass-lint -v -q; exit 0",
     "lint:ci": "eslint . && sass-lint -v -q",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
