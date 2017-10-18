@@ -4,10 +4,10 @@
   "description": "Sensitivity analysis",
   "main": "index.js",
   "scripts": {
-    "start": "yarn install && webpack-dev-server -d",
-    "build": "webpack --progress --colors --watch",
-    "lint": "eslint .; sass-lint -v -q; exit 0",
-    "lint:ci": "eslint . && sass-lint -v -q",
+    "start": "yarn install && webpack-dev-server -d --config webpack/dev.config.js --progress",
+    "build": "webpack -d --config webpack/dev.config.js --progress",
+    "build:prod": "webpack -p --config webpack/prod.config.js",
+    "lint": "eslint . && sass-lint -v -q",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,7 @@
   ],
   "author": "Danny Guo",
   "license": "MIT",
+  "private": true,
   "bugs": {
     "url": "https://github.com/dguo/theydidthemath/issues"
   },
@@ -42,6 +43,7 @@
     "sass-lint": "1.12.1",
     "style-loader": "0.19.0",
     "webpack": "3.8.1",
-    "webpack-dev-server": "2.9.2"
+    "webpack-dev-server": "2.9.2",
+    "webpack-merge": "4.1.0"
   }
 }

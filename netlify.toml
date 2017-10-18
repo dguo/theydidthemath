@@ -1,0 +1,6 @@
+[build]
+  command = "yarn run build:prod"
+  publish = "public"
+  [build.environment]
+    NODE_VERSION = "8.6.0"
+    YARN_VERSION = "1.1.0"
